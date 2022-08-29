@@ -1,0 +1,10 @@
+{% extends '_base.html' %}
+
+{% block content %}
+  <h1>Current Spice List</h1>
+  {% for spice in sp_list %}
+      <h2><a href= "{% url 'spice_detail' spice.pk %}">{{ spice.name}}</a></h2>>
+      <button type="submit"><a href="{% url 'spice-update' spice.pk %}">Update</a></button>
+      <button type="submit"><a href="{% url 'spice-delete' spice.pk %}">Delete</a></button>
+  {% endfor %}
+{% endblock content %}
