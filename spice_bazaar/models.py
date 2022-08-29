@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 
 class Spice_bazaar(models.Model):
@@ -9,3 +10,6 @@ class Spice_bazaar(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('spice_detail', args=[str(self.id)])

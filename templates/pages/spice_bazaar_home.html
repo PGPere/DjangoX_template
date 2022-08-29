@@ -1,5 +1,18 @@
 {% extends '_base.html' %}
 
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+
 {% block content %}
-<h1>This is the Home Page of Spice Bazaar</h1>
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <img src="{% static 'images/spice2.jpg' %}" class="img-fluid" alt="Spices image2"/>
+{% if user.is_authenticated %}
+<form class="form-inline ml-auto">
+  <a href="{% url 'spice_list' %}" class="btn btn-primary btn-lg btn-block mx-auto text-center">See Your List</a> 
+  <a href="{% url 'spice-add' %}" class="btn btn-primary btn-lg btn-block mx-auto text-center">Add Spice</a>
+</form>
+{% endif %}
+</div>
 {% endblock content %}
